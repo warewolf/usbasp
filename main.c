@@ -307,7 +307,8 @@ int main(void) {
 	PORTD = 0;
 	PORTB = 0;
 	/* all outputs except PD2 = INT0 */
-	DDRD = ~(1 << 2);
+	/* MX-USBISP-V3.0 / 2013-03-15 also ties USB to PD3 for some reason */
+	DDRD = ~(1 << 2) | ( 1 << 3);
 
 	/* output SE0 for USB reset */
 	DDRB = ~0;
